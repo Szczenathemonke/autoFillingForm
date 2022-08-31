@@ -1,4 +1,4 @@
-import { useFormik } from "formik";
+import { FormikErrors, useFormik } from "formik";
 interface Values {
   firstName: string;
   lastName: string;
@@ -16,7 +16,7 @@ const phoneRegVal =
   /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
 
 const validate = (values: Values) => {
-  const errors = {};
+  const errors: FormikErrors<Values> = {};
   if (!values.firstName) {
     errors.firstName = "Required!";
   } else if (values.firstName.length > 15) {
@@ -59,40 +59,81 @@ const SignUpForm = () => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="firstName">First Name</label>
+    <form
+      className="row gy-3 align-items-center justify-content-center"
+      onSubmit={formik.handleSubmit}
+    >
+      <label className="col" htmlFor="firstName">
+        First Name
+      </label>
       <input
+        className="col"
         id="firstName"
         type="text"
         {...formik.getFieldProps("firstName")}
       ></input>
       {formik.touched.firstName && formik.errors.firstName ? (
-        <div>{formik.errors.firstName}</div>
-      ) : null}
+        <div className="row align-items-center justify-content-center w-100">
+          {formik.errors.firstName}
+        </div>
+      ) : (
+        <div className="row align-items-center justify-content-center w-100 "></div>
+      )}
 
-      <label htmlFor="lastName">Last Name</label>
+      <label className="col" htmlFor="lastName">
+        Last Name
+      </label>
       <input
+        className="col"
         id="lastName"
         type="text"
         {...formik.getFieldProps("lastName")}
       ></input>
       {formik.touched.lastName && formik.errors.lastName ? (
-        <div>{formik.errors.lastName}</div>
-      ) : null}
+        <div className="row align-items-center justify-content-center w-100 ">
+          {formik.errors.lastName}
+        </div>
+      ) : (
+        <div className="row align-items-center justify-content-center w-100"></div>
+      )}
 
-      <label htmlFor="email">email</label>
-      <input id="email" type="email" {...formik.getFieldProps("email")}></input>
+      <label className="col" htmlFor="email">
+        email
+      </label>
+      <input
+        className="col"
+        id="email"
+        type="email"
+        {...formik.getFieldProps("email")}
+      ></input>
       {formik.touched.email && formik.errors.email ? (
-        <div>{formik.errors.email}</div>
-      ) : null}
+        <div className="row align-items-center justify-content-center w-100">
+          {formik.errors.email}
+        </div>
+      ) : (
+        <div className="row align-items-center justify-content-center w-100"></div>
+      )}
 
-      <label htmlFor="phone">Phone</label>
-      <input id="phone" type="text" {...formik.getFieldProps("phone")}></input>
+      <label className="col" htmlFor="phone">
+        Phone
+      </label>
+      <input
+        className="col"
+        id="phone"
+        type="text"
+        {...formik.getFieldProps("phone")}
+      ></input>
       {formik.touched.phone && formik.errors.phone ? (
-        <div>{formik.errors.phone}</div>
-      ) : null}
+        <div className="row align-items-center justify-content-center w-100">
+          {formik.errors.phone}
+        </div>
+      ) : (
+        <div className="row align-items-center justify-content-center w-100"></div>
+      )}
 
-      <button type="submit">X</button>
+      <button className="col-6" type="submit">
+        X
+      </button>
     </form>
   );
 };

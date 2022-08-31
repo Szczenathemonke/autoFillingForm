@@ -1,11 +1,10 @@
 import { useState } from "react";
 import SignUpForm from "./signUpForm";
-
-import "./App.css";
+import bootstrap from "bootstrap";
 
 function App() {
   return (
-    <div className="App">
+    <div className="row">
       <SignUpForm />
     </div>
   );
