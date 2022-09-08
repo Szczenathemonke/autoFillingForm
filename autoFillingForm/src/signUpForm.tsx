@@ -60,78 +60,89 @@ const SignUpForm = () => {
 
   return (
     <form
-      className="row gy-3 align-items-center justify-content-center"
+      className="row gy-3  justify-content-center"
       onSubmit={formik.handleSubmit}
     >
-      <label className="col" htmlFor="firstName">
-        First Name
-      </label>
-      <input
-        className="col"
-        id="firstName"
-        type="text"
-        {...formik.getFieldProps("firstName")}
-      ></input>
-      {formik.touched.firstName && formik.errors.firstName ? (
-        <div className="row align-items-center justify-content-center w-100">
-          {formik.errors.firstName}
-        </div>
-      ) : (
-        <div className="row align-items-center justify-content-center w-100 "></div>
-      )}
+      <div className="col-md-3 form-floating mb-3">
+        <input
+          className="form-control"
+          id="firstName"
+          type="text"
+          {...formik.getFieldProps("firstName")}
+        ></input>
+        <label className="col" htmlFor="firstName">
+          First Name
+        </label>
+        {formik.touched.firstName && formik.errors.firstName ? (
+          <div className="row align-items-center justify-content-center w-100">
+            {formik.errors.firstName}
+          </div>
+        ) : (
+          <div className="row align-items-center justify-content-center w-100 "></div>
+        )}
+      </div>
 
-      <label className="col" htmlFor="lastName">
-        Last Name
-      </label>
-      <input
-        className="col"
-        id="lastName"
-        type="text"
-        {...formik.getFieldProps("lastName")}
-      ></input>
-      {formik.touched.lastName && formik.errors.lastName ? (
-        <div className="row align-items-center justify-content-center w-100 ">
-          {formik.errors.lastName}
-        </div>
-      ) : (
-        <div className="row align-items-center justify-content-center w-100"></div>
-      )}
+      <div className="col-md-3 form-floating mb-3">
+        <input
+          className="form-control"
+          id="lastName"
+          type="text"
+          {...formik.getFieldProps("lastName")}
+        ></input>
+        <label className="col" htmlFor="lastName">
+          Last Name
+        </label>
+        {formik.touched.lastName && formik.errors.lastName ? (
+          <div className="row align-items-center justify-content-center w-100 ">
+            {formik.errors.lastName}
+          </div>
+        ) : (
+          <div className="row align-items-center justify-content-center w-100"></div>
+        )}
+      </div>
 
-      <label className="col" htmlFor="email">
-        email
-      </label>
-      <input
-        className="col"
-        id="email"
-        type="email"
-        {...formik.getFieldProps("email")}
-      ></input>
-      {formik.touched.email && formik.errors.email ? (
-        <div className="row align-items-center justify-content-center w-100">
-          {formik.errors.email}
-        </div>
-      ) : (
-        <div className="row align-items-center justify-content-center w-100"></div>
-      )}
+      <div className="col-md-12"></div>
 
-      <label className="col" htmlFor="phone">
-        Phone
-      </label>
-      <input
-        className="col"
-        id="phone"
-        type="text"
-        {...formik.getFieldProps("phone")}
-      ></input>
-      {formik.touched.phone && formik.errors.phone ? (
-        <div className="row align-items-center justify-content-center w-100">
-          {formik.errors.phone}
-        </div>
-      ) : (
-        <div className="row align-items-center justify-content-center w-100"></div>
-      )}
+      <div className="col-md-3 form-floating mb-3">
+        <input
+          className="form-control"
+          id="email"
+          type="email"
+          {...formik.getFieldProps("email")}
+        ></input>
+        <label className="col" htmlFor="email">
+          Email
+        </label>
+        {formik.touched.email && formik.errors.email ? (
+          <div className="row align-items-center justify-content-center w-100">
+            {formik.errors.email}
+          </div>
+        ) : (
+          <div className="row align-items-center justify-content-center w-100"></div>
+        )}
+      </div>
+      <div className="col-md-3 form-floating mb-3">
+        <input
+          className="form-control"
+          id="phone"
+          type="text"
+          {...formik.getFieldProps("phone")}
+        ></input>
+        <label className="col" htmlFor="phone">
+          Phone
+        </label>
+        {formik.touched.phone && formik.errors.phone ? (
+          <div className="row align-items-center justify-content-center w-100">
+            {formik.errors.phone}
+          </div>
+        ) : (
+          <div className="row align-items-center justify-content-center w-100"></div>
+        )}
+      </div>
 
-      <button className="col-6" type="submit">
+      <div className="col-md-12"></div>
+
+      <button className="col-md-3 btn btn-outline-warning" type="submit">
         X
       </button>
     </form>
