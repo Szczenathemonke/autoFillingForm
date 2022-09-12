@@ -1,4 +1,3 @@
-import { useState } from "react";
 import SignUpForm from "./signUpForm";
 
 function App() {

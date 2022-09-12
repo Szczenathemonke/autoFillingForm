@@ -56,7 +56,7 @@ const SignUpForm = () => {
 
   return (
     <form
-      className="row gy-3 align-items-center justify-content-center"
+      className="row gy-3  justify-content-center"
       onSubmit={formik.handleSubmit}
     >
       <div className="col-lg">
@@ -71,6 +71,7 @@ const SignUpForm = () => {
             First Name
           </label>
         </div>
+
         {formik.touched.firstName && formik.errors.firstName ? (
           <div className="row align-items-center justify-content-center w-100">
             {formik.errors.firstName}
@@ -91,6 +92,7 @@ const SignUpForm = () => {
             Last Name
           </label>
         </div>
+
         {formik.touched.lastName && formik.errors.lastName ? (
           <div className="row align-items-center justify-content-center w-100 ">
             {formik.errors.lastName}
@@ -99,6 +101,7 @@ const SignUpForm = () => {
           <div className="row align-items-center justify-content-center w-100"></div>
         )}
       </div>
+      <div className="col-md-12"></div>
 
       <div className="form-floating">
         <input
