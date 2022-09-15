@@ -1,40 +1,34 @@
 import { FormikErrors, useFormik } from "formik";
 interface Values {
-  firstName: string;
-  lastName: string;
+  name: string;
   email: string;
-  phone: string;
   date: string;
+  kids: string;
+  adults: string;
 }
 
 const emailRegVal = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-const phoneRegVal =
-  /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
 
 const validate = (values: Values) => {
   const errors: FormikErrors<Values> = {};
-  if (!values.firstName) {
-    errors.firstName = "Required!";
-  } else if (values.firstName.length > 15) {
-    errors.firstName = "Must be 15 characters or less";
-  }
-  if (!values.lastName) {
-    errors.lastName = "Required!";
-  } else if (values.lastName.length > 20) {
-    errors.lastName = "Must be 20 characters or less";
+  if (!values.name) {
+    errors.name = "Required!";
+  } else if (values.name.length > 15) {
+    errors.name = "Must be 15 characters or less";
   }
   if (!values.email) {
     errors.email = "Required!";
   } else if (!emailRegVal.test(values.email)) {
     errors.email = "Invalid email";
   }
-  if (!values.phone) {
-    errors.phone = "Required!";
-  } else if (!phoneRegVal.test(values.phone)) {
-    errors.phone = "Invalid phone number";
-  }
   if (!values.date) {
     errors.date = "Required!";
+  }
+  if (!values.adults) {
+    errors.kids = "There must be atleast 1 adult";
+  }
+  if (!values.adults) {
+    errors.adults = "There must be atleast 1 adult";
   }
 
   return errors;
@@ -42,11 +36,11 @@ const validate = (values: Values) => {
 const SignUpForm = () => {
   const formik = useFormik({
     initialValues: {
-      firstName: "",
-      lastName: "",
+      name: "",
       email: "",
-      phone: "",
       date: "",
+      kids: "",
+      adults: "",
     },
     validate,
     onSubmit: (values) => {
@@ -59,106 +53,116 @@ const SignUpForm = () => {
       className="row gy-3  justify-content-center"
       onSubmit={formik.handleSubmit}
     >
-      <div className="col-lg">
-        <div className="form-floating ">
-          <input
-            className="form-control"
-            id="firstName"
-            type="text"
-            {...formik.getFieldProps("firstName")}
-          ></input>
-          <label htmlFor="firstName" placeholder="john">
-            First Name
-          </label>
-        </div>
-
-        {formik.touched.firstName && formik.errors.firstName ? (
-          <div className="row align-items-center justify-content-center w-100">
-            {formik.errors.firstName}
+      <div className="row">
+        <div className="col-lg">
+          <div className="form-floating">
+            <input
+              className="form-control"
+              id="name"
+              type="text"
+              {...formik.getFieldProps("name")}
+            ></input>
+            <label htmlFor="name" placeholder="john">
+              Name
+            </label>
           </div>
-        ) : (
-          <div className="row align-items-center justify-content-center w-100 "></div>
-        )}
+
+          {formik.touched.name && formik.errors.name ? (
+            <div className="row align-items-center justify-content-center w-100">
+              {formik.errors.name}
+            </div>
+          ) : (
+            <div className="row align-items-center justify-content-center w-100 "></div>
+          )}
+        </div>
+        <div className="col-lg">
+          <div className="form-floating ">
+            <input
+              className="form-control"
+              id="email"
+              type="email"
+              {...formik.getFieldProps("email")}
+            ></input>
+            <label className="col" htmlFor="email">
+              email
+            </label>
+          </div>
+          {formik.touched.email && formik.errors.email ? (
+            <div className="row align-items-center justify-content-center w-100">
+              {formik.errors.email}
+            </div>
+          ) : (
+            <div className="row align-items-center justify-content-center w-100"></div>
+          )}
+        </div>
       </div>
-      <div className="col-lg">
+      <div className="col-3">
         <div className="form-floating ">
           <input
             className="form-control"
-            id="lastName"
+            id="date"
             type="text"
-            {...formik.getFieldProps("lastName")}
+            {...formik.getFieldProps("date")}
           ></input>
-          <label className="col" htmlFor="lastName">
-            Last Name
+          <label className="col" htmlFor="date">
+            Date
           </label>
         </div>
 
-        {formik.touched.lastName && formik.errors.lastName ? (
+        {formik.touched.date && formik.errors.date ? (
           <div className="row align-items-center justify-content-center w-100 ">
-            {formik.errors.lastName}
+            {formik.errors.date}
           </div>
         ) : (
           <div className="row align-items-center justify-content-center w-100"></div>
         )}
       </div>
-      <div className="col-md-12"></div>
+      <div className="col-lg-12"></div>
+      <div className="row">
+        <div className="col-lg">
+          <div className="form-floating">
+            <input
+              className="form-control"
+              id="kids"
+              type="text"
+              {...formik.getFieldProps("kids")}
+            ></input>
+            <label className="col" htmlFor="kids">
+              Number of Kids
+            </label>
+          </div>
+          {formik.touched.kids && formik.errors.kids ? (
+            <div className="row align-items-center justify-content-center w-100">
+              {formik.errors.kids}
+            </div>
+          ) : (
+            <div className="row align-items-center justify-content-center w-100"></div>
+          )}
+        </div>
+        <div className="col-lg">
+          <div className="form-floating">
+            <input
+              className="form-control"
+              id="adults"
+              type="text"
+              {...formik.getFieldProps("adults")}
+            ></input>
+            <label className="col" htmlFor="adults">
+              Number of Adults
+            </label>
+          </div>
+          {formik.touched.adults && formik.errors.adults ? (
+            <div className="row align-items-center justify-content-center w-100">
+              {formik.errors.adults}
+            </div>
+          ) : (
+            <div className="row align-items-center justify-content-center w-100"></div>
+          )}
+        </div>
+      </div>
 
-      <div className="form-floating">
-        <input
-          className="form-control"
-          id="email"
-          type="email"
-          {...formik.getFieldProps("email")}
-        ></input>
-        <label className="col" htmlFor="email">
-          email
-        </label>
-      </div>
-      {formik.touched.email && formik.errors.email ? (
-        <div className="row align-items-center justify-content-center w-100">
-          {formik.errors.email}
-        </div>
-      ) : (
-        <div className="row align-items-center justify-content-center w-100"></div>
-      )}
-      <div className="form-floating">
-        <input
-          className="form-control"
-          id="phone"
-          type="text"
-          {...formik.getFieldProps("phone")}
-        ></input>
-        <label className="col" htmlFor="phone">
-          Phone
-        </label>
-      </div>
-      {formik.touched.phone && formik.errors.phone ? (
-        <div className="row align-items-center justify-content-center w-100">
-          {formik.errors.phone}
-        </div>
-      ) : (
-        <div className="row align-items-center justify-content-center w-100"></div>
-      )}
-      <div className="form-floating">
-        <input
-          className="form-control"
-          id="date"
-          type="text"
-          {...formik.getFieldProps("date")}
-        ></input>
-        <label className="col" htmlFor="phone">
-          Date
-        </label>
-      </div>
-      {formik.touched.date && formik.errors.date ? (
-        <div className="row align-items-center justify-content-center w-100">
-          {formik.errors.date}
-        </div>
-      ) : (
-        <div className="row align-items-center justify-content-center w-100"></div>
-      )}
       <button className="btn btn-primary col-6 mb-3" type="submit">
-        submit form
+        Order
       </button>
     </form>
   );
