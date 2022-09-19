@@ -8,18 +8,18 @@ function ZooSignUpSummary() {
       </Row>
       <Row>
         <h4>
-          Thank you for your reservation, {values.name}!<br /> You can see your
-          ticket summary below.
+          {/* Thank you for your reservation, {values.name}!<br /> You can see your
+          ticket summary below. */}
         </h4>
       </Row>
       <Row>
         <Col>
-          <h3>Details</h3>
+          {/* <h3>Details</h3>
           <div>reservation on name : {values.name}</div>
           <div>contact email: {values.email}</div>
           <div>{values.kids} x tickets for kids</div>
           <div>{values.adults} x tickets for adults</div>
-          {/* <div>Total Cost : {{values.kids}*10+{values.adults}*15}</div> */}
+          <div>Total Cost : {{values.kids}*10+{values.adults}*15}</div> */}
         </Col>
         <Col></Col>
         <Col></Col>

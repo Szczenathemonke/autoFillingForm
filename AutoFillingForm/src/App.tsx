@@ -10,19 +10,20 @@ import ZooSignUpSummary from "./ZooSignUpSummary";
 
 function App(): JSX.Element {
   return (
-    <Routes>
+    <>
       <ZooHeader />
-
-      <Route path="/">
-        <ZooContent />
-        <ZooPricing />
-        <ZooSignUp />
-      </Route>
-      <Route path="/summary">
-        <ZooSignUpSummary />
-      </Route>
+      <Routes>
+        <Route path="/">
+          <ZooContent />
+          <ZooPricing />
+          <ZooSignUp />
+        </Route>
+        <Route path="/summary">
+          <ZooSignUpSummary />
+        </Route>
+      </Routes>
       <ZooFooter />
-    </Routes>
+    </>
   );
 }
 
