@@ -5,25 +5,28 @@ import ZooSignUp from "./ZooSignUp";
 import ZooPricing from "./ZooPricing";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./scss/custom.scss";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ZooSignUpSummary from "./ZooSignUpSummary";
 
 function App(): JSX.Element {
   return (
-    <>
+    <BrowserRouter>
       <ZooHeader />
       <Routes>
-        <Route path="/">
-          <ZooContent />
-          <ZooPricing />
-          <ZooSignUp />
-        </Route>
-        <Route path="/summary">
-          <ZooSignUpSummary />
-        </Route>
+        <Route
+          path="/"
+          element={
+            <>
+              <ZooContent />
+              <ZooPricing />
+              <ZooSignUp />
+            </>
+          }
+        />
+        <Route path="summary" element={<ZooSignUpSummary />}></Route>
       </Routes>
       <ZooFooter />
-    </>
+    </BrowserRouter>
   );
 }
 

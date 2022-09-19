@@ -1,5 +1,6 @@
 import { FormikErrors, useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
 interface Values {
   name: string;
   email: string;
@@ -7,7 +8,7 @@ interface Values {
   kids: string;
   adults: string;
 }
-const navigate = useNavigate();
+
 const emailRegVal = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 
 const validate = (values: Values) => {
@@ -35,6 +36,8 @@ const validate = (values: Values) => {
   return errors;
 };
 const SignUpForm = () => {
+  // const clientId = useRef(0);
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -45,15 +48,13 @@ const SignUpForm = () => {
     },
     validate,
     onSubmit: (values) => {
-      // alert(JSON.stringify(values, null, 2));
-
-      fetch("http://127.0.0.1:5173/summary", {
+      fetch("http://localhost:8000/clients", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          body: JSON.stringify(values),
-        },
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
       }).then(() => {
+        // console.log(JSON.stringify(values));
+        // clientId.current += 1;
         navigate("/Summary");
       });
     },
@@ -107,7 +108,7 @@ const SignUpForm = () => {
           )}
         </div>
       </div>
-      <div className="col-3">
+      <div className="col-6 col-l-3">
         <div className="form-floating ">
           <input
             className="form-control"

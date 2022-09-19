@@ -2,7 +2,7 @@ import zooLogo from "./assets/zoo-logo-png-transparent.png";
 
 function ZooFooter() {
   return (
-    <footer className="row bg-primary px-5">
+    <footer className="row row bg-primary px-5">
       <div className="container py-3">
         <div className="row"></div>
         <div className="row">

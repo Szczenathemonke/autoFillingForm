@@ -1,0 +1,36 @@
+{
+  "clients": [
+    {
+      "name": "asd",
+      "email": "asd@asd.pl",
+      "date": "2022-09-29",
+      "kids": "2",
+      "adults": "2",
+      "id": 1
+    },
+    {
+      "name": "as",
+      "email": "sd@asd.lp",
+      "date": "2022-09-29",
+      "kids": "2",
+      "adults": "2",
+      "id": 2
+    },
+    {
+      "name": "sa",
+      "email": "asd@asd.pl",
+      "date": "2022-09-20",
+      "kids": "1",
+      "adults": "1",
+      "id": 3
+    },
+    {
+      "name": "marcin",
+      "email": "marcin@byk.pl",
+      "date": "2022-09-29",
+      "kids": "2",
+      "adults": "1",
+      "id": 4
+    }
+  ]
+}

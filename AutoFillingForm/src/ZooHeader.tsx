@@ -14,7 +14,7 @@ function ZooHeader() {
         <Navbar.Toggle aria-controls="responsive-nav" />
         <Navbar.Collapse id="responsive-nav" className="justify-content-end">
           <Nav>
-            <Nav.Link href="#">
+            <Nav.Link href="/">
               <img src={navbarHome} width="32" /> Home
             </Nav.Link>
             <Nav.Link href="#">
