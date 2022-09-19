@@ -1,4 +1,5 @@
 import { FormikErrors, useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
 interface Values {
   name: string;
   email: string;
@@ -6,7 +7,7 @@ interface Values {
   kids: string;
   adults: string;
 }
-
+const navigate = useNavigate();
 const emailRegVal = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 
 const validate = (values: Values) => {
@@ -44,7 +45,17 @@ const SignUpForm = () => {
     },
     validate,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      // alert(JSON.stringify(values, null, 2));
+
+      fetch("http://127.0.0.1:5173/summary", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          body: JSON.stringify(values),
+        },
+      }).then(() => {
+        navigate("/Summary");
+      });
     },
   });
 
@@ -101,7 +112,8 @@ const SignUpForm = () => {
           <input
             className="form-control"
             id="date"
-            type="text"
+            type="date"
+            min={new Date().toJSON().slice(0, 10)}
             {...formik.getFieldProps("date")}
           ></input>
           <label className="col" htmlFor="date">
