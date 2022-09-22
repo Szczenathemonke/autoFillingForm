@@ -62,7 +62,7 @@ const SignUpForm = () => {
       className="row gy-3  justify-content-center "
       onSubmit={formik.handleSubmit}
     >
-      <div className="row">
+      <div className="row g-2">
         <div className="col-lg">
           <div className="form-floating">
             <input
@@ -128,13 +128,14 @@ const SignUpForm = () => {
         )}
       </div>
       <div className="col-lg-12"></div>
-      <div className="row">
+      <div className="row g-2">
         <div className="col-lg">
           <div className="form-floating">
             <input
               className="form-control"
               id="kids"
               type="number"
+              min="0"
               {...formik.getFieldProps("kids")}
             ></input>
             <label className="col" htmlFor="kids">
@@ -155,6 +156,7 @@ const SignUpForm = () => {
               className="form-control"
               id="adults"
               type="number"
+              min="0"
               {...formik.getFieldProps("adults")}
             ></input>
             <label className="col" htmlFor="adults">

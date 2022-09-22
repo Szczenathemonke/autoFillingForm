@@ -19,6 +19,7 @@ function ZooSignUpSummary() {
       })
       .then((data) => {
         setSummaryData(data[0]);
+
         setBilling(data[0].kids * 10 + data[0].adults * 15);
       });
   }, []);
@@ -50,7 +51,11 @@ function ZooSignUpSummary() {
                 <span className="text-capitalize">{summaryData.name}</span>
               </div>
               <div>contact email: {summaryData.email}</div>
-              <div>{summaryData.kids} x tickets for kids</div>
+              {summaryData.kids !== "0" && summaryData.kids !== "" ? (
+                <div>{summaryData.kids} x tickets for kids</div>
+              ) : (
+                <div></div>
+              )}
               <div>{summaryData.adults} x tickets for adults</div>
               <div>Total Cost : {billing} zł</div>
             </Col>
