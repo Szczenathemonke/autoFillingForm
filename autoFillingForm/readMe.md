@@ -1,12 +1,20 @@
-# AutoFillingForm
+# Projekt Zoo
 
-React and Formik based AutoFillingForm with different features
+Projekt Zoo jest stroną typu SPA zaprogramowaną w react.js. Strona uwzględnia formularz do rezerwacji biletów do fikcyjnego Zoo.
 
-## core concepts
+## wykorzystane biblioteki
 
-Learning how to make forms with Formik inside React-ts.
-Learning how to design web form with Bootstrap
+- Formik do obsługi formularzy
+- Bootstrap/Bopostrap-react w celu oprawy graficznej
+- React-Router-Dom w celu stworzenia struktury SPA
+- Json-server w celu stworzenia sztucznego backendu do obsługi podsumowania rejestracji
 
-## content - inProgress
+## instalacja
 
-- signUpForm - component for custom Form
+for running json-server
+
+`npx json-server --watch src/data/db.json --port 8000`
+
+for running SPA
+
+`npm run dev`
