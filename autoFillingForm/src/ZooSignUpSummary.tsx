@@ -23,27 +23,26 @@ function ZooSignUpSummary() {
       });
   }, []);
 
-  //console.log({summaryData.kids}*10+{summaryData.adults}*15)
   return (
     <>
       {summaryData && (
-        <Container>
+        <Container className="m-5">
           <Row>
             <h1>Summary</h1>
           </Row>
           <Row>
-            <h4>
+            <div>
               Thank you for your reservation,{" "}
               <span className="text-primary text-capitalize">
                 {summaryData.name}
               </span>
               !
               <br /> You can see your ticket summary below.
-            </h4>
+            </div>
             <span></span>
             <h4></h4>
           </Row>
-          <Row>
+          <Row className="my-4">
             <Col>
               <h3>Details</h3>
               <div>
@@ -63,9 +62,3 @@ function ZooSignUpSummary() {
 }
 
 export default ZooSignUpSummary;
-
-// {"name":"jack"
-// "email": "jack@jack.pl"
-// "date":"2022-09-22"
-// "kids": "3"
-// "adults": "1"}

@@ -1,6 +1,6 @@
 import { FormikErrors, useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
-import { useRef } from "react";
+
 interface Values {
   name: string;
   email: string;
@@ -36,7 +36,6 @@ const validate = (values: Values) => {
   return errors;
 };
 const SignUpForm = () => {
-  // const clientId = useRef(0);
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -53,8 +52,6 @@ const SignUpForm = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
       }).then(() => {
-        // console.log(JSON.stringify(values));
-        // clientId.current += 1;
         navigate("/Summary");
       });
     },
@@ -62,7 +59,7 @@ const SignUpForm = () => {
 
   return (
     <form
-      className="row gy-3  justify-content-center"
+      className="row gy-3  justify-content-center "
       onSubmit={formik.handleSubmit}
     >
       <div className="row">
@@ -96,7 +93,7 @@ const SignUpForm = () => {
               {...formik.getFieldProps("email")}
             ></input>
             <label className="col" htmlFor="email">
-              email
+              E-mail
             </label>
           </div>
           {formik.touched.email && formik.errors.email ? (
@@ -108,8 +105,8 @@ const SignUpForm = () => {
           )}
         </div>
       </div>
-      <div className="col-6 col-l-3">
-        <div className="form-floating ">
+      <div className="col-7 col-l-3">
+        <div className="form-floating">
           <input
             className="form-control"
             id="date"
@@ -137,7 +134,7 @@ const SignUpForm = () => {
             <input
               className="form-control"
               id="kids"
-              type="text"
+              type="number"
               {...formik.getFieldProps("kids")}
             ></input>
             <label className="col" htmlFor="kids">
@@ -157,7 +154,7 @@ const SignUpForm = () => {
             <input
               className="form-control"
               id="adults"
-              type="text"
+              type="number"
               {...formik.getFieldProps("adults")}
             ></input>
             <label className="col" htmlFor="adults">
