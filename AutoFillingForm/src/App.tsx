@@ -6,7 +6,7 @@ import ZooPricing from "./ZooPricing";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./scss/custom.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ZooSignUpSummary from "./ZooSignUpSummary";
+import ZooSignUpSummary from "./ZooSignUpForm";
 
 function App(): JSX.Element {
   return (
